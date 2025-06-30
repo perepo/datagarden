@@ -24,8 +24,15 @@ jobs:
           uses: docker/build-push-action@v4
           with:
             context: .
-            push: true
+            push: false
             tags: ${{ github.sha }}
             repository: docker.io/perepo/datagarden
- 
+
+        - name: Push to Registry
+          run: |
+              docker push perepo/asdf:${{ github.sha }}
+              docker push perepo/asdf:latest   
+        
+        - name: Logout
+          run: docker logout
 
