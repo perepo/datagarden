@@ -21,7 +21,7 @@ jobs:
         - uses: actions/checkout@master
 
         - name: build the docker image
-          run: docker build . -t perepo/datagarden:${{ github.sha }} -t perepo/datagarden .
+          run: docker build . -t perepo/datagarden:${{ github.sha }} -t perepo/datagarden:latest 
 
         - name: Push to Registry
           run: |
