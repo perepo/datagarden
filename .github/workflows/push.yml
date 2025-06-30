@@ -17,7 +17,7 @@ jobs:
         - name: build and push to docker
           uses: docker/build-push-action@v4
           with:
-            name: perepo/repository
+            name: perepo/datagarden
             push: true
             tags: ${{ github.sha }}
             repository: perepo/repository
