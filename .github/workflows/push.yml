@@ -1,0 +1,20 @@
+on: push
+name: deploy
+jobs: 
+    deploy:
+        name:
+        runs-on: ubuntu-latest
+        steps:
+        - uses: actions/checkout@master
+        - name: build and push to docker
+          uses: docker/build-push-action@v4
+          with:
+            context: .
+            push: true
+            tags: ${{ github.sha }}
+            tag_with_ref: true
+            tag_with_sha: true
+            env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+            DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
