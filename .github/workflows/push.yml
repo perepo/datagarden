@@ -9,7 +9,7 @@ jobs:
         - name: build and push to docker
           uses: docker/build-push-action@v4
           with:
-            name: mydocler/repository
+            name: perepo/repository
             push: true
             tags: ${{ github.sha }}
             username: ${{ secrets.DOCKER_USERNAME }}
