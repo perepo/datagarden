@@ -20,7 +20,7 @@ jobs:
             name: perepo/repository
             push: true
             tags: ${{ github.sha }}
-            repository: perepo/repository
+            repository: perepo/repositorio
             username: ${{ secrets.DOCKER_USERNAME }}
             password: ${{ secrets.DOCKER_PASSWORD }}
   
