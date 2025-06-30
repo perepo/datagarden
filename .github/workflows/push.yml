@@ -12,8 +12,7 @@ jobs:
             context: .
             push: true
             tags: ${{ github.sha }}
-            tag_with_ref: true
-            tag_with_sha: true
+  
             env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
