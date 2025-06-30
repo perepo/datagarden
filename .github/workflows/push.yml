@@ -20,18 +20,13 @@ jobs:
         
         - uses: actions/checkout@master
 
-        - name: build and push to docker
-          uses: docker/build-push-action@v4
-          with:
-            context: .
-            push: false
-            tags: ${{ github.sha }}
-            repository: docker.io/perepo/datagarden
+        - name: build the docker image
+          run: docker build . -t perepo/datagarden:${{ github.sha }} -t perepo/datagarden .
 
         - name: Push to Registry
           run: |
-              docker push perepo/asdf:${{ github.sha }}
-              docker push perepo/asdf:latest   
+              docker push perepo/datagarden:${{ github.sha }}
+              docker push perepo/datagarden:latest   
         
         - name: Logout
           run: docker logout
